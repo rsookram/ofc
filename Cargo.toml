@@ -1,0 +1,3 @@
+[package]
+name = "ofc"
+edition = "2024"

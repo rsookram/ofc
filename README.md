@@ -24,3 +24,15 @@ git clone https://github.com/rsookram/ofc
 cd ofc
 cargo build --release
 ```
+
+## File Format
+
+| Size (Bytes) | Type  | Description            |
+| ------------ | ----- | ---------------------- |
+| 4            | [u8]  | Magic number (b"ofc\0") |
+| 4            | u32   | Number of files contained (len) |
+| 8 * len      | [u64] | End offsets of each file contained, relative to the
+end of this list |
+| variable     | [u8]  | The content of each file, one after the other |
+
+All numbers are in little endian.
